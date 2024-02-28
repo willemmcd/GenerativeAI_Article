@@ -1,0 +1,4 @@
+#ignore vscode settings folder
+.vscode
+.DS_Store
+img/.DS_Store
