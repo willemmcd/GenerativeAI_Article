@@ -9,6 +9,7 @@
   - [Setup our API key](#setup-our-api-key)
   - [The Generative AI CLI Application](#the-generative-ai-cli-application)
   - [Testing our CLI application](#testing-our-cli-application)
+  - [Taking a closer look at our code](#taking-a-closer-look-at-our-code)
 
 ## What is Generative AI?
 
@@ -351,6 +352,73 @@ The Great Wall is also a UNESCO World Heritage Site and has become a powerful sy
 Now that we have sampled both GPT and image capturing functionalities, we can exit to main menu, by typing 'END' followed by 'enter'. And then to exit CLI, we can type '3' followed by 'enter'.
 
 
+## Taking a closer look at our code
+
+If we look closer at the code, we really want to specifically look at these two methods:
+```python
+def process_ai_generation(question):
+```
+```python
+def process_ai_vision(question, img_url):
+```
+
+These methods are used to call the OpenAI API by specifying the parameters, and then handling the response.
+
+The rest of the CLI is pure Python logic that handles the input, output and logical flow.
+
+1. Let's look at the first method.
+
+```python
+def process_ai_generation(question):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": question},
+        ]
+    )
+
+    print("<< " + response.choices[0].message.content)
+```
+
+The above method is used to query the OpenAI API with a specific question using the gpt-3.5-turbo AI model. We supply a 'role' and 'content' as input. Please note that the client object has been imported earlier in the code.
+
+We then print the response from the AI model, by retrieving if from response.choices[0].message.content). This is then displayed to the user.
+
+To read the specification on this model, and for more advanced processing, please visit the below link:
+
+https://platform.openai.com/docs/guides/text-generation/chat-completions-api
 
 
+2. Now let's look at the image captioning method.
 
+```python
+def process_ai_vision(question, img_url):
+    response = client.chat.completions.create(
+        model="gpt-4-vision-preview",
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": question},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": img_url,
+                        },
+                    },
+                ],
+            }
+        ],
+        max_tokens=4096,
+    )
+    print("<< IMAGE CAPTION")
+    print(response.choices[0].message.content)
+```
+
+This API call is a bit more advanced. Firstly we need to use a different model (gpt-4-vision-preview). We still specify the 'role' and 'content', but the content needs more field definition as earlier. 
+
+As with earlier example, we then print the response from the AI model, by retrieving if from response.choices[0].message.content). This is then displayed to the user.
+
+For more on this API call, please see the below URL.
+
+https://platform.openai.com/docs/guides/vision
