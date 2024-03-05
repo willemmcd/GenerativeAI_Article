@@ -171,6 +171,19 @@ def process_ai_vision(question, img_url):
     print("<< IMAGE CAPTION")
     print(response.choices[0].message.content)
 
+def process_ai_image_generation(img_description):
+    response = client.images.generate(
+        model="dall-e-3",
+        prompt=img_description,
+        size="1024x1024",
+        quality="standard",
+        n=1,
+    )
+
+    image_url = response.data[0].url
+
+    print("<< Your image is ready at:")
+    print(image_url)
 
 def process_text_generation():
     print("\n-- Generative AI with Text generation! --")
@@ -189,13 +202,14 @@ def process_text_generation():
 
 def process_vision_generation():
     print("\n-- Generative AI with Image captioning! --")
-    print("Please feel free to ask any question regarding an image")
+    print("Please supply any public URL of an image, and then ask anything regarding this image")
     print("To go to main menu, simply type END")
 
     img_url = ""
     question = ""
     while img_url != "END" and question != "END":
-        print("Please enter the URL of the image you have a question about")
+        print("Let's generate a new image!")
+        print("Please enter the URL of the image:")
         img_url = input()
 
         if img_url != "END":
@@ -208,14 +222,30 @@ def process_vision_generation():
             main_menu_processing()
 
 
+def process_image_generation():
+    print("\n-- Generative AI with Image generation! --")
+    print("Please supply a detailed description of the image you wish to generate")
+    print("To go to main menu, simply type END")
+
+    img_description = ""
+    while img_description != "END":
+        print("Please enter your image description: ")
+        img_description = input()
+        if img_description != "END":
+            process_ai_image_generation(img_description)
+
+    if img_description == "END":
+        main_menu_processing()
+
+
 def print_main_menu():
     print("\n----- MAIN MENU -----")
     print("Please choose an option to continue")
     print("Options")
     print("1 - Text generation")
     print("2 - Image captioning")
-    print("3 - Exit")
-
+    print("3 - Image generation")
+    print("4 - Exit")
 
 def main_menu_processing():
     print_main_menu()
@@ -225,12 +255,15 @@ def main_menu_processing():
         process_text_generation()
     elif option_chosen == "2":
         process_vision_generation()
+    elif option_chosen == "3":
+        process_image_generation()
+    elif option_chosen == "4":
+        exit(1)
 
 
 if __name__ == '__main__':
     print("Welcome to the Generative AI CLI!")
     main_menu_processing()
-
 
 ```
 
