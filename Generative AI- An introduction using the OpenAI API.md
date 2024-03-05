@@ -16,11 +16,11 @@
 
 Artificial intelligence, often abbreviated as AI, is a rapidly evolving technology that is poised to revolutionize various aspects of human work and operations in the future. It refers to the simulation of human intelligence processes by machines, especially computer systems. These processes include learning, reasoning and self-correction.
 
-In this artice, we will focus on using AI to generate certain things for us. This is called Generative AI. It refers to a subset of artificial intelligence techniques focused on creating or generating new data that is similar to existing data. Generative AI models are designed to process certain tasks, such as classification or prediction. Subsequently, they generate novel outputs based on the processed information
+In this article, we will focus on using AI to generate certain things for us. This is called Generative AI. It refers to a subset of artificial intelligence techniques focused on creating or generating new data that is similar to existing data. Generative AI models are designed to process certain tasks, such as classification or prediction. Subsequently, it generates novel outputs based on the processed information.
 
 ## OpenAI, the AI pioneers
 
-OpenAI is an independent organization focused on advancing artificial intelligence for the better of mankind. Founded in December 2015 by several entrepreneurs and researchers such as Elon Musk, Sam Altman, Greg Brockman,  Ilya Sutskever, Wojciech Zaremba, and John Schulman, among others.
+OpenAI is an independent organization focused on advancing artificial intelligence for the betterment of mankind. Founded in December 2015 by several entrepreneurs and researchers such as Elon Musk, Sam Altman, Greg Brockman,  Ilya Sutskever, Wojciech Zaremba, and John Schulman, among others.
 
 The organization's mission is to ensure that artificial general intelligence (AGI) - AI that can outperform humans across a wide range of tasks - benefits all of humanity.
 
@@ -28,9 +28,9 @@ OpenAI is known for its contributions to various areas of AI research, including
 
 ## OpenAI API
 
-We will be using the OpenAI API (Application programming interface - used by software developers to integrate various software systems.) which will give us a range of state-of-the-art AI models through a simple programming interface.
+We will be using the OpenAI API, which is an Application Programming Interface (API) used by software developers to integrate various software systems. This will give us a range of state-of-the-art AI models through a simple programming interface.
 
-Some of the pre-trained model we'll use includes:
+Some of the pre-trained models we'll use include:
 
 * GPT (Generative Pre-trained Transformer): A family of transformer-based language models trained on large corpora of text data.
 * CLIP (Contrastive Language-Image Pre-training): A model trained on a large dataset of text and images to learn a unified representation space for both modalities. 
