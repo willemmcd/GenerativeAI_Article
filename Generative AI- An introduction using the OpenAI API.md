@@ -5,6 +5,7 @@
   - [OpenAI, the AI pioneers](#openai-the-ai-pioneers)
   - [OpenAI API](#openai-api)
   - [What will we build?](#what-will-we-build)
+    - [Prerequisites:](#prerequisites)
   - [Project Setup](#project-setup)
   - [Setup our API key](#setup-our-api-key)
   - [The Generative AI CLI Application](#the-generative-ai-cli-application)
@@ -48,7 +49,7 @@ The focus will be on building a CLI (Command Line Interface) app that is capable
 
 We will be using Python as the base programming language.
 
-###Prerequisites:
+### Prerequisites:
 * Knowledge of Python and building Python applications
 * Python (3.7.1 or newer) installed on your computer
 * An IDE, we'll be using PyCharm.
